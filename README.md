@@ -5,12 +5,15 @@
 ## Examples
 
 ```javascript
-var converter = require('vn-phone-number-converter');
+var convert = require('vn-phone-number-converter');
+
+var number = '+84.122.012.3456';
+console.log('convert("%s"): %s', number, convert(number));
 
 var number_in_11digits = [
   '01207654321', '+841220123456', '00841289876543'
 ];
 
-console.log('Result: %s',
-  JSON.stringify(number_in_11digits.map(converter)));
+console.log('Results (10 digits): %s',
+  JSON.stringify(number_in_11digits.map(convert)));
 ```

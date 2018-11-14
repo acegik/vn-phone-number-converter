@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var changePrefixPhoneNumber = require('../index');
+var changePrefixPhoneNumber = require('..');
 
 describe('changePrefixPhoneNumber()', function() {
   //http://vietnamnet.vn/vn/cong-nghe/vien-thong/cach-goi-cho-thue-bao-11-so-sau-khi-chuyen-sang-10-so-cua-cac-nha-mang-453985.html
@@ -123,11 +123,11 @@ describe('changePrefixPhoneNumber()', function() {
     assert.equal(changePrefixPhoneNumber('0084199' + sample), '008459' + sample);
   })
 
-  it('should change gmobile phone numbers correctly', function() {
+  it('should change gmobile phone numbers (with delimiters) correctly', function() {
     // Đầu số 0199 chuyển đổi thành 059
     let sample = '7654321';
-    assert.equal(changePrefixPhoneNumber('019.9' + sample), '059' + sample);
-    assert.equal(changePrefixPhoneNumber('+8419.9' + sample), '+8459' + sample);
-    assert.equal(changePrefixPhoneNumber('008419.9' + sample), '008459' + sample);
+    assert.equal(changePrefixPhoneNumber('019.9' + sample, {removeDelimiters: true}), '059' + sample);
+    assert.equal(changePrefixPhoneNumber('+84.199' + sample, {removeDelimiters: false}), '+84.59' + sample);
+    assert.equal(changePrefixPhoneNumber('0084 199' + sample, {removeDelimiters: false}), '0084 59' + sample);
   })
 });
