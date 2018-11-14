@@ -1,0 +1,15 @@
+{
+  "name": "vn-phone-number-converter",
+  "version": "0.1.0",
+  "description": "converting 11-digit mobile phone numbers to 10-digits",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive ./test/*-test.js"
+  },
+  "author": "acegik",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^4.1.0"
+  }
+}
